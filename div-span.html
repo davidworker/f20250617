@@ -23,85 +23,72 @@
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
-        <link rel="stylesheet" href="css/table.css" />
         <style>
-            table th {
-                background: red;
+            .profile {
+                width: 100%;
+                min-height: 300px;
+                padding: 10px;
+                border: 1px solid #000;
+                border-radius: 10px;
             }
 
-            .fn {
-                position: fixed;
-                right: 0;
-                bottom: 40px;
-                padding: 0 20px;
-                background: red;
+            .box {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                background-color: #fb7878;
+                padding: 10px;
             }
 
-            .fn:hover {
-                padding: 0 40px;
-                transition: all 0.3s ease;
+            .box > div {
+                padding: 10px;
+                background-color: #2b9ade;
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 300px;
             }
 
-            /* 後代選擇 */
-            .fn span {
+            .block {
+                padding: 10px;
+                background-color: #2b9ade;
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 200px;
+                margin-top: 10px;
             }
 
-            /* 子選擇 */
-            .fn > span {
+            .first-name {
+                font-size: 40px;
+            }
+
+            .item {
+                background-color: #fb7878;
             }
         </style>
     </head>
     <body>
-        <div class="fn">
-            <span>
-                <span></span>
-            </span>
-        </div>
+        <!-- display: block -->
+        <div class="item">區塊標籤1</div>
+        <div class="item">區塊標籤2</div>
 
-        <div class="fn">
-            <div>
-                <span></span>
+        <!-- display: inline -->
+        <span class="item">行內標籤1</span>
+        <span class="item">行內標籤2</span>
+
+        <!-- div 劃分區塊位置 -->
+        <!-- span 針對個別內容進行修飾 -->
+
+        <div class="profile">
+            <div class="box">
+                <div><span class="first-name">我</span>的名字</div>
+                <div>2</div>
             </div>
-        </div>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Score</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>John</td>
-                    <td>100</td>
-                </tr>
-                <tr>
-                    <td>Jane</td>
-                    <td>90</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <!-- 不合理的表格，缺少 thead 和 tbody -->
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Score</th>
-            </tr>
-
-            <tr>
-                <td>John</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td>Jane</td>
-                <td>90</td>
-            </tr>
-        </table>
-
-        <div class="fn">
-            <span>中</span>
+            <div class="block">3</div>
+            <div class="block">4</div>
         </div>
     </body>
 </html>

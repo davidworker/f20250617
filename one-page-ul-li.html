@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>精品咖啡 | 咖啡豆</title>
+        <meta name="description" content="精品咖啡 | 咖啡豆" />
+        <!-- <meta name="keywords" content="精品咖啡,咖啡豆,咖啡,精品咖啡豆,咖啡豆推薦" /> -->
+        <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="images/favicon/android-icon-192x192.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png" />
+        <link rel="manifest" href="images/favicon/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png" />
+        <meta name="theme-color" content="#ffffff" />
+        <style>
+            *,
+            *::after,
+            *::before {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html,
+            body {
+                scroll-behavior: smooth;
+            }
+
+            .header {
+                position: fixed;
+                width: 100%;
+                height: 80px;
+                left: 0;
+                top: 0;
+                background-color: #3c3c3c;
+                color: #fff;
+                z-index: 100;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 20px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            .menu {
+                color: #fff;
+                list-style-type: none;
+            }
+
+            .menu li {
+                display: inline;
+            }
+
+            .page {
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                background-color: #953a3a;
+                color: #fff;
+            }
+
+            .page:nth-child(even) {
+                background-color: #3a954a;
+            }
+
+            .to-top {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background-color: #3c3c3c;
+                color: #fff;
+                padding: 10px;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="to-top">
+            <a href="#">TOP</a>
+        </div>
+
+        <div class="header">
+            <div class="logo">
+                <img src="images/favicon/android-icon-192x192.png" style="max-width: 100px" alt="logo" />
+            </div>
+            <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#product">Product</a></li>
+            </ul>
+        </div>
+        <div class="page" id="home">
+            <h2>Home</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+        </div>
+        <div class="page" id="about">
+            <h2>About</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+        </div>
+        <div class="page" id="contact">
+            <h2>Contact</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+        </div>
+        <div class="page" id="product">
+            <h2>Product</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+        </div>
+    </body>
+</html>

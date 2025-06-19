@@ -23,85 +23,39 @@
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
-        <link rel="stylesheet" href="css/table.css" />
-        <style>
-            table th {
-                background: red;
-            }
-
-            .fn {
-                position: fixed;
-                right: 0;
-                bottom: 40px;
-                padding: 0 20px;
-                background: red;
-            }
-
-            .fn:hover {
-                padding: 0 40px;
-                transition: all 0.3s ease;
-            }
-
-            /* 後代選擇 */
-            .fn span {
-            }
-
-            /* 子選擇 */
-            .fn > span {
-            }
-        </style>
     </head>
     <body>
-        <div class="fn">
-            <span>
-                <span></span>
-            </span>
-        </div>
+        <!-- 一個頁面只會出現一個 h1 -->
+        <!-- 語意 -->
+        <h1>Hello World h1</h1>
+        <h2>Hello World h2</h2>
+        <h3>Hello World h3</h3>
+        <h4>Hello World h4</h4>
+        <h5>Hello World h5</h5>
+        <h6>Hello World h6</h6>
 
-        <div class="fn">
-            <div>
-                <span></span>
-            </div>
-        </div>
+        <!-- 錯誤的寫法，小標題不可包大標題 -->
+        <h6>
+            Hello World h6
+            <h1>大文字</h1>
+        </h6>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Score</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>John</td>
-                    <td>100</td>
-                </tr>
-                <tr>
-                    <td>Jane</td>
-                    <td>90</td>
-                </tr>
-            </tbody>
-        </table>
+        <!-- 正確的寫法 -->
+        <h1>
+            <h2>
+                <h3>
+                    <h4>
+                        <h5>
+                            <h6></h6>
+                        </h5>
+                    </h4>
+                </h3>
+            </h2>
+        </h1>
 
-        <!-- 不合理的表格，缺少 thead 和 tbody -->
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Score</th>
-            </tr>
-
-            <tr>
-                <td>John</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td>Jane</td>
-                <td>90</td>
-            </tr>
-        </table>
-
-        <div class="fn">
-            <span>中</span>
-        </div>
+        <!-- 錯誤的寫法，不可跳層 -->
+        <h1>
+            <h3></h3>
+        </h1>
     </body>
 </html>
