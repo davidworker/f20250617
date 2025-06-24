@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>表單 Form</title>
+    </head>
+    <body>
+        <!-- action 輸入表單發送的位置(URL)，預設為自己 -->
+        <!-- 前端與後端的差異？前台跟後台？ -->
+        <!-- method 傳送的方式，get 跟 post 的差異？ -->
+        <h2>Method: get</h2>
+        <form action="https://book.niceinfos.com/api/form/index.php" method="get" enctype="application/x-www-form-urlencoded">
+            <input type="text" name="username" />
+            <input type="password" name="password" />
+            <input type="submit" value="登入" />
+        </form>
+        <h2>Method: post</h2>
+        <form action="https://book.niceinfos.com/api/form/index.php" method="post" enctype="application/x-www-form-urlencoded">
+            <input type="text" name="username" />
+            <input type="password" name="password" />
+            <input type="submit" value="登入" />
+        </form>
+        <h2>Upload Picture</h2>
+        <form action="https://book.niceinfos.com/api/form/index.php" method="post" enctype="multipart/form-data">
+            <input type="text" name="username" />
+            <input type="password" name="password" />
+            <input type="file" name="picture" />
+            <input type="submit" value="登入" />
+        </form>
+    </body>
+    <script>
+        const demo = '#測試一下@'
+        const encode = encodeURIComponent(demo)
+        console.log(encode)
+    </script>
+</html>

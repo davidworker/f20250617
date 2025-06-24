@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Select</title>
+    </head>
+    <body>
+        <h2>單選</h2>
+        <form action="https://book.niceinfos.com/api/form/index.php">
+            <select name="city" id="city">
+                <option value="">請選擇</option>
+                <option value="taipei" selected>台北</option>
+                <option value="newTaipei">新北</option>
+                <option value="taoyuan">桃園</option>
+                <option>新竹</option>
+            </select>
+            <input type="submit" value="送出" />
+        </form>
+
+        <h2>多選</h2>
+        <form action="https://book.niceinfos.com/api/form/index.php">
+            <select name="city[]" id="city" multiple>
+                <option value="">請選擇</option>
+                <option value="taipei" selected>台北</option>
+                <option value="newTaipei">新北</option>
+                <option value="taoyuan">桃園</option>
+                <option>新竹</option>
+            </select>
+            <input type="submit" value="送出" />
+        </form>
+    </body>
+</html>

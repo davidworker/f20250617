@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Input Text</title>
+    </head>
+    <body>
+        <form action="">
+            <!-- 文字輸入框 -->
+            <!-- name 是後端接收的變數名稱，在 form 中才有用 -->
+            <input type="text" name="username" id="num1" /> <span>加</span> <input type="text" name="username" id="num2" /> <span>等於</span>
+            <button id="btn">計算</button>
+        </form>
+    </body>
+    <script>
+        const num1 = document.getElementById('num1')
+        const num2 = document.getElementById('num2')
+        const btn = document.getElementById('btn')
+        btn.addEventListener('click', () => {
+            const result = parseInt(num1.value) + parseInt(num2.value)
+            console.log(result)
+        })
+    </script>
+</html>
