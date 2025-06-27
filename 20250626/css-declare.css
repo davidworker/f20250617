@@ -1,0 +1,7 @@
+.box {
+    width: 100px;
+    height: 100px;
+    background: #dedede;
+    text-align: center;
+    line-height: 100px;
+}

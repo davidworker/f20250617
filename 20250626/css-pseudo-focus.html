@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS 偽類選擇器 :focus</title>
+        <link rel="stylesheet" href="reset.css" />
+        <style>
+            .input {
+                width: 100%;
+                height: 40px;
+                border-radius: 5px;
+                border: 1px solid #dedede;
+                outline: none;
+                padding: 0 10px;
+                font-size: 16px;
+            }
+
+            .input:focus {
+                background-color: #98b5ff;
+                outline: 2px solid #007bff;
+                color: #fff;
+            }
+
+            .input:focus::placeholder {
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <input type="text" class="input" placeholder="Enter your name" />
+        </div>
+    </body>
+</html>

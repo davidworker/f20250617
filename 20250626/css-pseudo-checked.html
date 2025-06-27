@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS 偽類選擇器 :checked</title>
+        <link rel="stylesheet" href="reset.css" />
+        <style>
+            .state {
+                display: none;
+            }
+
+            .checkbox-state label {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .checkbox-state .yes {
+                display: none;
+            }
+
+            .state:checked + .checkbox-state .yes {
+                display: inline-block;
+            }
+
+            .state:checked + .checkbox-state .no {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <input type="checkbox" class="state" id="checkbox-toggle" />
+            <div class="checkbox-state">
+                <label for="checkbox-toggle">
+                    <img src="checkbox.svg" alt="image" class="no" />
+                    <img src="checkbox-checked.svg" alt="image" class="yes" />
+                    <span class="no">未選取</span>
+                    <span class="yes">已選取</span>
+                </label>
+            </div>
+
+            <!-- <input type="radio" class="state" /> -->
+        </div>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS 相鄰兄弟選擇器</title>
+        <link rel="stylesheet" href="reset.css" />
+        <style>
+            .my {
+                background-color: red;
+                color: white;
+                padding: 10px;
+            }
+
+            .my + .sibling {
+                background-color: blue;
+                color: white;
+                padding: 10px;
+                font-size: 20px;
+            }
+
+            .my + .parent > .sibling {
+                background-color: green;
+                color: white;
+                padding: 10px;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="sibling">Sibling1</div>
+        <div class="my">My</div>
+        <div class="sibling">Sibling2</div>
+        <div class="sibling">Sibling3</div>
+        <div class="my">My</div>
+        <div>Sibling Other</div>
+        <div class="parent">
+            <div class="sibling">Sibling4</div>
+        </div>
+        <div class="my">My</div>
+        <div class="parent">
+            <div class="sibling">Sibling5 Child</div>
+        </div>
+    </body>
+</html>

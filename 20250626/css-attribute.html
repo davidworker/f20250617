@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS Attribute</title>
+        <link rel="stylesheet" href="reset.css" />
+        <style>
+            input[type='text'] {
+                background-color: red;
+            }
+
+            input[type='password'] {
+                background-color: blue;
+            }
+
+            /* 使用 class 選擇器較為適當 */
+            [class='box'] {
+                background-color: green;
+            }
+
+            /* 萬用字元範例 */
+            [class*='box'] {
+                color: yellow;
+            }
+
+            /* 屬性選擇器範例 */
+            [data-name] {
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div><input type="text" /></div>
+        <div><input type="password" /></div>
+        <div class="box">Some</div>
+        <div class="box demo">Some Box</div>
+        <div data-name="John">John</div>
+        <div data-name="Jane">Jane</div>
+    </body>
+</html>

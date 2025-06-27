@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS 偽類選擇器 :hover</title>
+        <link rel="stylesheet" href="reset.css" />
+        <style>
+            .button {
+                padding: 10px 20px;
+                border-radius: 5px;
+                border: none;
+                cursor: pointer;
+                background-color: #dedede;
+            }
+
+            .button:hover {
+                background-color: #bab4b4;
+            }
+
+            .button.primary {
+                background-color: #007bff;
+                color: white;
+            }
+
+            .button.primary:hover {
+                background-color: #0056b3;
+            }
+
+            .button.border {
+                border: 1px solid #dedede;
+                background-color: transparent;
+            }
+
+            .button.border:hover {
+                background-color: #dedede;
+            }
+
+            .button.danger {
+                background-color: #dc3545;
+                color: white;
+            }
+
+            .button.danger:hover {
+                background-color: #c82333;
+            }
+
+            .hint {
+                display: none;
+            }
+
+            .button:hover .hint {
+                display: inline-block;
+            }
+
+            .button-group {
+                display: flex;
+                gap: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="button-group">
+                <button class="button primary">Submit</button>
+                <button class="button border">Reset</button>
+                <a href="#" class="button danger">Cancel</a>
+                <span class="button">Disabled</span>
+                <button class="button">通關密碼: <span class="hint">66666</span></button>
+            </div>
+        </div>
+    </body>
+</html>

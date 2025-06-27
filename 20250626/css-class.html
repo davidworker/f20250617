@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS class</title>
+        <link rel="stylesheet" href="reset.css" />
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                color: white;
+                text-align: center;
+                line-height: 100px;
+            }
+
+            .text-red {
+                color: red;
+            }
+
+            .bg-blue {
+                background-color: blue;
+            }
+
+            .first {
+                font-size: 50px;
+                background-color: black;
+                color: white;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">BOX</div>
+        <div class="demo">DEMO</div>
+        <div><span class="first">我</span>覺得這個不會很難。</div>
+        <!-- 多個class value 錯誤寫法 -->
+        <h2 class="box" class="demo">Title</h2>
+
+        <!-- 多個class value 正確寫法 -->
+        <div class="bg-blue text-red">Some Text</div>
+    </body>
+</html>
