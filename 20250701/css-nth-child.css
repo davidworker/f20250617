@@ -1,0 +1,51 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    border: 1px solid #555555;
+}
+
+.table th {
+    background-color: #3659e9;
+    color: #fff;
+}
+
+/* 偶數 */
+.table tbody tr:nth-child(even) {
+    background-color: #dadada;
+}
+
+/* 奇數 */
+.table tbody tr:nth-child(odd) {
+    background-color: #ff7e7e;
+}
+
+.table tbody tr:first-child {
+    color: #f1ff32;
+}
+
+.table tbody tr:last-child {
+    color: #8d0606;
+}
+
+/* 可取代 first-child */
+.table tbody tr:nth-child(1) {
+    color: blue;
+}
+
+/* 不可取代 last-child */
+.table tbody tr:nth-child(5) {
+    color: #ffffff;
+}
+
+/* 使用 nth-child(n) 將數字的部分全部靠右對齊 */
+.table tbody tr td:nth-child(2),
+.table tbody tr td:nth-child(3),
+.table tbody tr td:nth-child(4),
+.table tbody tr td:nth-child(5) {
+    text-align: right;
+}
