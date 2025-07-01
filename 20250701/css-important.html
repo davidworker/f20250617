@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS important</title>
+        <link rel="stylesheet" href="reset.css" />
+        <style>
+            .box {
+                background-color: #3659e9;
+                color: red !important;
+                padding: 20px;
+            }
+
+            .box {
+                color: yellow !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="box" style="color: blue !important">
+                <h1>Hello World</h1>
+            </div>
+        </div>
+    </body>
+</html>

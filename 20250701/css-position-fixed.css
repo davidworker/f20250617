@@ -1,0 +1,19 @@
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: #3659e9;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 10px;
+    top: 50px;
+}
+
+.wrap {
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 0, 0.161);
+    position: absolute;
+}

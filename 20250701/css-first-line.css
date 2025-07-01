@@ -1,0 +1,9 @@
+.first-line {
+    background-color: #3659e9;
+    color: #fff;
+    padding: 20px;
+}
+
+.first-line::first-line {
+    color: #ff2a2a;
+}

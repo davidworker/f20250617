@@ -1,0 +1,26 @@
+.first-letter {
+    background-color: #3659e9;
+    color: #fff;
+    padding: 20px;
+}
+
+/* 使用 ::first-letter 選擇第一個字母 */
+.first-letter::first-letter {
+    color: #ff2a2a;
+    font-size: 40px;
+    font-weight: bold;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+}
+
+/* 使用 span 選擇第一個字母 */
+.first-letter-span {
+    font-size: 40px;
+    font-weight: bold;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+}
