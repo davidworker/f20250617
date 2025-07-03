@@ -1,0 +1,102 @@
+.face {
+    width: 300px;
+    height: 300px;
+    background-color: #e8a943;
+    margin: 0 auto;
+    position: relative;
+    top: calc(50vh - 150px);
+}
+
+.face .eye {
+    width: 100px;
+    height: 100px;
+    background: #ffffff;
+    border-radius: 100px;
+    position: absolute;
+    top: 50px;
+    left: 25px;
+}
+
+.face .eye.right {
+    right: 25px;
+    left: unset;
+}
+
+.face .eye-ball {
+    position: absolute;
+    /* top: calc(50% - 25px); */
+    top: 50%;
+    margin-top: -25px;
+
+    /* left: calc(50% - 25px); */
+    left: 50%;
+    margin-left: -25px;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    background: #000000;
+}
+
+.face .nose {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    background: #ff3333;
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    margin-left: -25px;
+}
+
+.face .nose .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 100px;
+    background: #ffffff;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.face .nose .dot:last-child {
+    left: unset;
+    right: 10px;
+}
+
+.face .mouth {
+    width: 150px;
+    height: 50px;
+    background: #ffc3c3;
+    position: absolute;
+    bottom: 20px;
+    left: calc(50% - 75px);
+    overflow: hidden;
+}
+
+.face .mouth .tooth {
+    width: 50px;
+    height: 35px;
+    background: #ffffff;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 2;
+}
+
+.face .mouth .tooth.right {
+    left: unset;
+    right: 20px;
+}
+
+.face .mouth .tongue {
+    width: 50px;
+    height: 50px;
+    background: rgb(255, 43, 43);
+    border-radius: 100px;
+    position: absolute;
+    bottom: -25px;
+    left: calc(50% - 25px);
+}

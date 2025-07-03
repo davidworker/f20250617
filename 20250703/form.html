@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FORM</title>
+        <link rel="stylesheet" href="reset.css" />
+    </head>
+    <body>
+        <div class="container">
+            <form action="https://book.niceinfos.com/api/form/index.php" method="get">
+                <div>
+                    <label for="interest">興趣</label>
+                    <br />
+                    <input type="checkbox" name="interest[]" id="interest1" value="1" />
+                    <label for="interest1">興趣1</label>
+                    <input type="checkbox" name="interest[]" id="interest2" value="2" />
+                    <label for="interest2">興趣2</label>
+                    <input type="checkbox" name="interest[]" id="interest3" value="3" />
+                    <label for="interest3">興趣3</label>
+                    <input type="checkbox" name="interest[]" id="interest4" value="4" />
+                    <label for="interest4">興趣4</label>
+                </div>
+                <button type="submit">送出</button>
+            </form>
+            <!-- for="interest1" = #interest1 = id="interest1" -->
+            <!-- name -> 欄位名稱, value -> 欄位值 -->
+            <!-- key:value -->
+            <img src="./dog.avif" alt="dog" />
+        </div>
+    </body>
+</html>
