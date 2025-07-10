@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS Print Student Table</title>
+        <link rel="stylesheet" href="reset.css" />
+        <link rel="stylesheet" href="4-rwd-print-student-table.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="slogan">學生名單</h1>
+            <div class="print-fn">
+                <button class="print-btn" onclick="window.print()">列印</button>
+            </div>
+            <table class="student-table">
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>年齡</th>
+                        <th>性別</th>
+                        <th>學號</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>張三</td>
+                        <td>20</td>
+                        <td>男</td>
+                        <td>123456</td>
+                    </tr>
+                    <tr>
+                        <td>李四</td>
+                        <td>21</td>
+                        <td>女</td>
+                        <td>123457</td>
+                    </tr>
+                    <tr>
+                        <td>王五</td>
+                        <td>22</td>
+                        <td>男</td>
+                        <td>123458</td>
+                    </tr>
+                    <tr>
+                        <td>趙六</td>
+                        <td>23</td>
+                        <td>女</td>
+                        <td>123459</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+}
+
+.grid-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        'header header header'
+        'sidebar main main '
+        'footer footer footer';
+    height: 100vh;
+    gap: 10px;
+    padding: 10px;
+}
+
+/* 然後可以將項目分配到這些區域 */
+.header-item {
+    grid-area: header;
+    background-color: #ff6b6b;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.sidebar-item {
+    grid-area: sidebar;
+    background-color: #4ecdc4;
+    color: white;
+    padding: 20px;
+}
+
+.main-item {
+    grid-area: main;
+    background-color: #45b7d1;
+    color: white;
+    padding: 20px;
+}
+
+.footer-item {
+    grid-area: footer;
+    background-color: #96ceb4;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}

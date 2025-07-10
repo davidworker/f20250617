@@ -1,0 +1,49 @@
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.student-table th {
+    background-color: #2f3fec;
+    color: #fff;
+}
+
+.student-table th,
+.student-table td {
+    border: 1px solid #000;
+    padding: 10px;
+}
+
+.student-table tbody tr:nth-child(even) {
+    background-color: #f0f0f0;
+}
+
+.print-fn {
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.print-btn {
+    padding: 5px 15px;
+    background-color: #5562f8;
+    border-radius: 5px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.print-btn:hover {
+    background-color: #2f3fec;
+}
+
+@media print {
+    .print-fn {
+        display: none;
+    }
+
+    .student-table th,
+    .student-table td {
+        background: transparent;
+        color: #000;
+    }
+}

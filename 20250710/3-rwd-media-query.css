@@ -1,0 +1,21 @@
+.title {
+    background-color: #2f3fec;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* max-width 由大寫到小, min-width 由小寫到大 */
+/* 寫顛倒會沒效 */
+
+@media screen and (max-width: 768px) {
+    .title {
+        background-color: #f00;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .title {
+        background-color: #0f0;
+    }
+}

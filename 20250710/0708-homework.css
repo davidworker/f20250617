@@ -1,0 +1,166 @@
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.container {
+    max-width: 1000px;
+}
+
+.header {
+    height: 80px;
+    background-color: #1b58b9;
+    color: #fff;
+}
+
+.header .wrap {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.header .title {
+    font-size: 20px;
+}
+
+.footer {
+    height: 80px;
+    background-color: #0a2e67;
+    color: #fff;
+}
+
+.footer .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.main {
+    width: 100%;
+    min-height: calc(100vh - 80px - 80px);
+    background-color: #eeeeee;
+}
+
+.main .wrap {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 20px;
+}
+
+.main .wrap > div {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 3px 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.main .subtitle {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #2e2e2e;
+    font-weight: 500;
+}
+
+.main .menu {
+    display: grid;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.main .menu li {
+    border-radius: 5px;
+    color: #5c5c5c;
+    transition: all 0.3s ease;
+}
+
+.main .menu li:hover {
+    background-color: #1b58b9;
+    color: #fff;
+}
+
+.main .menu a {
+    display: block;
+    width: 100%;
+    padding: 10px;
+}
+
+.main .tools {
+    display: grid;
+    gap: 10px;
+}
+
+.main .tools li {
+    color: #5c5c5c;
+    font-size: 12px;
+    text-align: center;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.main .tools li:hover {
+    background-color: #f56747;
+    color: #fff;
+}
+
+.main .tools li a {
+    display: block;
+    width: 100%;
+    padding: 10px;
+}
+
+.main .article {
+    display: grid;
+    gap: 10px;
+}
+
+.main .article-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #3253d9;
+}
+
+.main .article-content {
+    font-size: 14px;
+    color: #5c5c5c;
+}
+
+.main .article-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #5c5c5c;
+    margin-top: 10px;
+}
+
+.main .article-more {
+    color: #304ffc;
+}
+
+.main .article-more a {
+    padding: 3px 6px;
+    border-radius: 5px;
+    border: 1px solid #304ffc;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.main .article-more:hover a {
+    background-color: #304ffc;
+    color: #fff;
+}
+
+.main .article-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .main .wrap {
+        grid-template-columns: 1fr;
+    }
+}

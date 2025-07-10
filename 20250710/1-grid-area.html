@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS Grid Area 布局示例</title>
+        <link rel="stylesheet" href="reset.css" />
+        <link rel="stylesheet" href="1-grid-area.css" />
+    </head>
+    <body>
+        <div class="grid-area">
+            <header class="header-item">
+                <h1>網頁標題</h1>
+                <p>這是頁面的頭部區域，橫跨整個頂部</p>
+            </header>
+
+            <aside class="sidebar-item">
+                <h2>側邊欄</h2>
+                <ul>
+                    <li>導航項目 1</li>
+                    <li>導航項目 2</li>
+                    <li>導航項目 3</li>
+                    <li>導航項目 4</li>
+                </ul>
+            </aside>
+
+            <main class="main-item">
+                <h2>主要內容區域</h2>
+                <p>這是主要內容區域，占據了右側的大部分空間。您可以在這裡放置主要的頁面內容，如文章、產品展示、表單等。</p>
+                <p>由於使用了 CSS Grid 的 grid-area 屬性，我們可以輕鬆地創建複雜的布局，而不需要擔心浮動或定位的問題。</p>
+            </main>
+
+            <footer class="footer-item">
+                <h3>頁腳</h3>
+                <p>版權所有 &copy; 2025 | 這是頁面的底部區域</p>
+            </footer>
+        </div>
+    </body>
+</html>
