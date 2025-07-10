@@ -1,0 +1,35 @@
+.header {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    background: #285bca;
+    color: #fff;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.header .wrap {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.header .menu ul {
+    display: flex;
+    gap: 20px;
+}
+
+/* 傳統做法 */
+/* .header .menu ul li {
+    margin-right: 20px;
+}
+
+.header .menu ul li:last-child {
+    margin-right: 0;
+} */
+/* 傳統做法 */
+
+.page {
+    height: 200vh;
+}

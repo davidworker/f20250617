@@ -1,0 +1,26 @@
+.d-flex {
+    display: flex;
+    height: 300px;
+    border: 1px solid #000;
+    gap: 15px;
+}
+
+.d-flex .box {
+    /* width: 100px; */
+    /* height: 100px; */
+    background: #285bca;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.box.flex-2 {
+    flex: 2;
+}
+
+.box.w-100 {
+    width: 600px;
+    flex: unset;
+}

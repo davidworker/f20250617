@@ -1,0 +1,86 @@
+body {
+    background: #f3f4f6;
+}
+
+.header {
+    background: #0d9488;
+    color: #fff;
+    height: 60px;
+}
+
+.header .wrap {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.header .wrap h1 {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.main {
+    min-height: calc(100vh - 120px);
+}
+
+.footer {
+    background: #1f2937;
+    color: #fff;
+    text-align: center;
+    height: 60px;
+}
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.card .item {
+    width: 243px;
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.card .img {
+    height: 150px;
+    background: #dedede;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #909090;
+}
+
+.card .wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    justify-content: space-between;
+    height: calc(100% - 150px);
+}
+
+.card .wrap .title {
+    font-size: 20px;
+    font-weight: 500;
+    color: #0a4ba5;
+}
+
+.card .wrap .desc {
+    font-size: 14px;
+    color: #909090;
+}
+
+.card .wrap .btn {
+    padding: 10px 20px;
+    background: #0a4ba5;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.card .wrap .btn:hover {
+    background: #1b65cc;
+}
