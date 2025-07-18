@@ -1,0 +1,19 @@
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: #ff8282;
+    border-radius: 10px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bounce {
+    animation-name: bounce;
+    animation-duration: 2s;
+}
+
+.delay-10s {
+    animation-delay: 10s;
+}

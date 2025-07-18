@@ -1,0 +1,38 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    height: 100%;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.slogan {
+    font-size: 24px;
+    font-weight: 700;
+    padding: 10px 0;
+    color: rgb(16, 113, 210);
+    margin-bottom: 20px;
+    border-bottom: 1px solid #555555;
+}
+
+ul {
+    list-style-type: none;
+}

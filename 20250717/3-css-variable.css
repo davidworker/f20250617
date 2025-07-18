@@ -1,0 +1,27 @@
+:root {
+    --box-width: 300px;
+    --box-height: 100px;
+}
+
+.box {
+    width: var(--box-width);
+    height: var(--box-height);
+    background-color: #ff8282;
+    border-radius: 10px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.other {
+    width: var(--box-width);
+    height: var(--box-height);
+    background-color: #ff8282;
+    border-radius: 10px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

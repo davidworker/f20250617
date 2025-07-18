@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>20250717-homework</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                height: 100vh;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .container {
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+
+            .ball {
+                width: 60px;
+                height: 60px;
+                background: radial-gradient(circle at 30% 30%, #ff6b6b, #ee5a24);
+                border-radius: 50%;
+                position: absolute;
+                left: -60px;
+                top: 50%;
+                transform: translateY(-50%);
+                box-shadow: 0 0 30px rgba(255, 107, 107, 0.5), inset -10px -10px 20px rgba(0, 0, 0, 0.3);
+                animation: bounceMove 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+            }
+
+            .ball::before {
+                content: '';
+                position: absolute;
+                top: 15%;
+                left: 25%;
+                width: 15px;
+                height: 15px;
+                background: rgba(255, 255, 255, 0.8);
+                border-radius: 50%;
+                filter: blur(2px);
+            }
+
+            @keyframes bounceMove {
+                0% {
+                    left: -60px;
+                    top: 50%;
+                    transform: translateY(-50%) scale(1);
+                }
+
+                8% {
+                    left: 8%;
+                    top: 42%;
+                    transform: translateY(-50%) scale(1.02);
+                }
+
+                16% {
+                    left: 16%;
+                    top: 28%;
+                    transform: translateY(-50%) scale(1.06);
+                }
+
+                24% {
+                    left: 24%;
+                    top: 18%;
+                    transform: translateY(-50%) scale(1.08);
+                }
+
+                32% {
+                    left: 32%;
+                    top: 22%;
+                    transform: translateY(-50%) scale(1.06);
+                }
+
+                40% {
+                    left: 40%;
+                    top: 35%;
+                    transform: translateY(-50%) scale(1.03);
+                }
+
+                48% {
+                    left: 48%;
+                    top: 47%;
+                    transform: translateY(-50%) scale(1.01);
+                }
+
+                56% {
+                    left: 56%;
+                    top: 58%;
+                    transform: translateY(-50%) scale(0.99);
+                }
+
+                64% {
+                    left: 64%;
+                    top: 72%;
+                    transform: translateY(-50%) scale(0.96);
+                }
+
+                72% {
+                    left: 72%;
+                    top: 82%;
+                    transform: translateY(-50%) scale(0.93);
+                }
+
+                80% {
+                    left: 80%;
+                    top: 78%;
+                    transform: translateY(-50%) scale(0.95);
+                }
+
+                88% {
+                    left: 88%;
+                    top: 68%;
+                    transform: translateY(-50%) scale(0.97);
+                }
+
+                96% {
+                    left: 96%;
+                    top: 55%;
+                    transform: translateY(-50%) scale(0.99);
+                }
+
+                100% {
+                    left: calc(100% + 60px);
+                    top: 50%;
+                    transform: translateY(-50%) scale(1);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="ball"></div>
+        </div>
+    </body>
+</html>
