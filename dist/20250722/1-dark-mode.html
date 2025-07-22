@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS Dark Mode</title>
+        <link rel="stylesheet" href="reset.css" />
+        <link rel="stylesheet" href="1-dark-mode.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="box">1</div>
+            <div class="fn">
+                <button class="btn" onclick="toggleTheme()">Theme Switch</button>
+            </div>
+        </div>
+    </body>
+    <script>
+        function toggleTheme() {
+            const html = document.querySelector('html')
+            html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark'
+        }
+    </script>
+</html>
