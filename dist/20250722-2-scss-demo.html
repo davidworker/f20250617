@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SCSS Demo</title>
+        <link rel="stylesheet" href="./css/20250722-2-scss-demo.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="container">
+                <h1 class="main-title">熱銷商品推薦</h1>
+                <div class="sub-title">精選優質商品，使用 Flexbox 完美布局</div>
+            </div>
+        </header>
+        <div class="main">
+            <div class="container">
+                <div class="product-grid">
+                    <div class="product-item">
+                        <div class="product-image">
+                            <div class="image-background"></div>
+                            <span class="tag">熱銷</span>
+                        </div>
+                        <div class="product-wrap">
+                            <div class="product-title">無線藍牙耳機</div>
+                            <div class="proudct-info">高音質立體聲，長達24小時續航，完美音樂體驗</div>
+                            <div class="product-price">
+                                <div class="discount-price">NT$ 1,290</div>
+                                <div class="original-price">NT$ 1,699</div>
+                            </div>
+                            <div class="product-button">
+                                <button class="buy-now">立即購買</button>
+                                <button class="add-to-cart">加入購物車</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-image">
+                            <div class="image-background"></div>
+                            <span class="tag">新品</span>
+                        </div>
+                        <div class="product-wrap">
+                            <div class="product-title">智慧手環</div>
+                            <div class="proudct-info">健康監測，運動追蹤，智慧提醒功能一應俱全</div>
+                            <div class="product-price">
+                                <div class="discount-price">NT$ 2,499</div>
+                                <div class="original-price">NT$ 2,999</div>
+                            </div>
+                            <div class="product-button">
+                                <button class="buy-now">立即購買</button>
+                                <button class="add-to-cart">加入購物車</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-image">
+                            <div class="image-background"></div>
+                            <span class="tag none"></span>
+                        </div>
+                        <div class="product-wrap">
+                            <div class="product-title">無線充電板</div>
+                            <div class="proudct-info">快速充電技術，支援多種設備，簡約設計美觀實用</div>
+                            <div class="product-price">
+                                <div class="discount-price">NT$ 899</div>
+                                <div class="original-price">NT$ 1,199</div>
+                            </div>
+                            <div class="product-button">
+                                <button class="buy-now">立即購買</button>
+                                <button class="add-to-cart">加入購物車</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-image">
+                            <div class="image-background"></div>
+                            <span class="tag">限時</span>
+                        </div>
+                        <div class="product-wrap">
+                            <div class="product-title">便攜行動電源</div>
+                            <div class="proudct-info">20000mAh大容量，快充技術，輕薄設計攜帶方便</div>
+                            <div class="product-price">
+                                <div class="discount-price">NT$ 1,599</div>
+                                <div class="original-price">NT$ 1,999</div>
+                            </div>
+                            <div class="product-button">
+                                <button class="buy-now">立即購買</button>
+                                <button class="add-to-cart">加入購物車</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-image">
+                            <div class="image-background"></div>
+                            <span class="tag none"></span>
+                        </div>
+                        <div class="product-wrap">
+                            <div class="product-title">藍牙音響</div>
+                            <div class="proudct-info">360度環繞音效，防水設計，戶外聚會首選</div>
+                            <div class="product-price">
+                                <div class="discount-price">NT$ 2,199</div>
+                                <div class="original-price">NT$ 2,799</div>
+                            </div>
+                            <div class="product-button">
+                                <button class="buy-now">立即購買</button>
+                                <button class="add-to-cart">加入購物車</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-image">
+                            <div class="image-background"></div>
+                            <span class="tag">推薦</span>
+                        </div>
+                        <div class="product-wrap">
+                            <div class="product-title">車用手機支架</div>
+                            <div class="proudct-info">磁吸式設計，360度旋轉，安全駕駛好幫手</div>
+                            <div class="product-price">
+                                <div class="discount-price">NT$ 499</div>
+                                <div class="original-price">NT$ 699</div>
+                            </div>
+                            <div class="product-button">
+                                <button class="buy-now">立即購買</button>
+                                <button class="add-to-cart">加入購物車</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="theme-toggle">
+            <button class="theme-toggle-button" onclick="toggleTheme()">
+                <span class="theme-toggle-button-icon dark">🌙</span>
+                <span class="theme-toggle-button-icon light">🌞</span>
+            </button>
+        </div>
+        <div class="to-top">
+            <a href="#">
+                <span class="to-top-button-icon">☝</span>
+            </a>
+        </div>
+    </body>
+    <script>
+        function toggleTheme() {
+            const html = document.querySelector('html')
+            html.dataset.theme = html.dataset.theme === 'light' ? 'dark' : 'light'
+        }
+    </script>
+</html>
