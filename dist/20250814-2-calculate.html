@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>計算器</title>
+        <link rel="stylesheet" href="css/20250814-2-calculate.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="title">計算器</h1>
+            <div class="input-group">
+                <div>
+                    <input type="number" id="num1" class="input-item" placeholder="請輸入數字" />
+                </div>
+                <div>
+                    <select id="operator" class="input-item">
+                        <option value="">請選擇計算方式</option>
+                        <option value="add">加法</option>
+                        <option value="sub">減法</option>
+                        <option value="mul">乘法</option>
+                        <option value="div">除法</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="number" id="num2" class="input-item" placeholder="請輸入數字" />
+                </div>
+            </div>
+            <div class="btn-group">
+                <button id="btn-calculate">計算</button>
+            </div>
+            <div class="result" id="result"></div>
+        </div>
+    </body>
+    <script src="js/20250814-2-calculate.js"></script>
+</html>
