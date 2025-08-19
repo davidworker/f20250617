@@ -41,8 +41,23 @@ dom.btnCalculate.addEventListener('click', function () {
     }
 
     // 乘法
+    if (operator === 'mul') {
+        console.log('run mul.')
+        let result = num1 * num2
+        dom.result.textContent = result
+    }
 
     // 除法
+    if (operator === 'div') {
+        console.log('run div')
+        if (num2 === 0) {
+            alert('除數不能為 0')
+            return false
+        }
+
+        let result = num1 / num2
+        dom.result.textContent = result
+    }
 })
 
 // == 相等，只要外觀長得一樣就可以

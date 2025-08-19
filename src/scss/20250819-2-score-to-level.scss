@@ -1,0 +1,68 @@
+@import './components/reset';
+
+:root {
+    --color: #416ff9;
+}
+
+.demo-title {
+    color: var(--color);
+    text-align: center;
+    border-bottom: 2px solid var(--color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.input-group {
+    display: grid;
+    gap: 5px;
+    margin-bottom: 20px;
+    input {
+        width: 100%;
+        height: 40px;
+        border: 1px solid #ccc;
+        padding: 0 20px;
+        border-radius: 5px;
+        outline: none;
+        font-size: 16px;
+
+        &:focus {
+            border-color: var(--color);
+        }
+    }
+}
+
+.fn {
+    text-align: right;
+    margin-bottom: 20px;
+    button {
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        background-color: var(--color);
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        &:hover {
+            background-color: #2454e6;
+        }
+    }
+}
+
+.result {
+    padding: 20px;
+    border: 2px dashed var(--color);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #333;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    &.show {
+        opacity: 1;
+    }
+}
