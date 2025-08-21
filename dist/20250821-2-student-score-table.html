@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>學生成績表</title>
+        <link rel="stylesheet" href="./css/20250821-2-student-score-table.css" />
+    </head>
+    <body>
+        <!-- 學生姓名, 國文, 英文, 數學, 總分 -->
+        <div class="container">
+            <h1 class="title">學生成績表</h1>
+            <div class="fn">
+                <button class="btn" id="generate-student-btn">產生學生資料</button>
+                <button class="btn" id="export-csv-btn">匯出 CSV</button>
+            </div>
+            <table class="table" id="students-table">
+                <thead>
+                    <tr>
+                        <th>學生姓名</th>
+                        <th>國文</th>
+                        <th>英文</th>
+                        <th>數學</th>
+                        <th>總分</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td>David</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>300</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>300</td>
+                    </tr>
+                    <tr>
+                        <td>Mary</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>300</td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/20250821-2-student-score-table.js"></script>
+</html>
