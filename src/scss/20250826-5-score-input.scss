@@ -65,4 +65,9 @@
     tbody tr:nth-child(even) {
         background-color: #f0f0f0;
     }
+
+    tbody tr:hover {
+        background-color: #ffb957;
+        cursor: pointer;
+    }
 }

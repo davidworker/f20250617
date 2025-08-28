@@ -20,9 +20,10 @@ const addScore = function () {
     }
 
     let total = +chinese + +english + +math
+    let uid = Date.now() + '_' + Math.floor(Math.random() * 1000)
 
     console.log(name, chinese, english, math, total)
-    let tr = `<tr>
+    let tr = `<tr data-uid="${uid}">
         <td>${name}</td>
         <td>${chinese}</td>
         <td>${english}</td>
@@ -33,6 +34,7 @@ const addScore = function () {
     dom.table.querySelector('tbody').insertAdjacentHTML('beforeend', tr)
 
     students.push({
+        uid,
         name,
         chinese,
         english,
@@ -57,6 +59,7 @@ const checkScore = function (score) {
 }
 
 dom.btn.addEventListener('click', addScore)
+
 dom.chinese.addEventListener('keyup', function (e) {
     let value = dom.chinese.value
     dom.chinese.value = checkScore(value)
@@ -64,6 +67,7 @@ dom.chinese.addEventListener('keyup', function (e) {
         addScore()
     }
 })
+
 dom.english.addEventListener('keyup', function (e) {
     let value = dom.english.value
     dom.english.value = checkScore(value)
@@ -71,6 +75,7 @@ dom.english.addEventListener('keyup', function (e) {
         addScore()
     }
 })
+
 dom.math.addEventListener('keyup', function (e) {
     let value = dom.math.value
     dom.math.value = checkScore(value)
@@ -91,7 +96,7 @@ const init = function () {
     students = jsonStr ? JSON.parse(jsonStr) : []
 
     students.forEach((student) => {
-        let tr = `<tr>
+        let tr = `<tr data-uid="${student.uid}">
             <td>${student.name}</td>
             <td>${student.chinese}</td>
             <td>${student.english}</td>
@@ -104,3 +109,122 @@ const init = function () {
 }
 
 init()
+
+const bindTr = function () {
+    let trs = table.querySelectorAll('tbody tr')
+    console.log(trs)
+
+    // trs 並非 DOM 元素，所以無法使用 addEventListener
+    // trs.addEventListener('click', function (e) {
+    //     console.log('trs')
+    // })
+
+    // 使用 forEach 來為每一個 tr 添加 click 事件
+    // 但如果後續又新增 tr，則不會觸發 click 事件
+    trs.forEach(function (tr) {
+        tr.addEventListener('click', function (e) {
+            // 點擊 td 時，因為事件氣泡，所以會觸發 tr 的 click 事件
+            console.log(e.target)
+        })
+    })
+
+    // 寫成 function 每次異動時，重新執行一次
+    // 會有 n+1 的效能問題
+}
+
+const normalIf = async function (e) {
+    if (e.target.tagName == 'TD') {
+        // 找到上一層的 tr
+        let tr = e.target.closest('tr')
+        if (tr) {
+            let result = await Swal.fire({
+                title: '確定要刪除嗎？',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: '確定',
+                cancelButtonText: '取消',
+            })
+
+            if (result.isConfirmed) {
+                // 刪除 tr
+                tr.remove()
+
+                // 抓取 tr 的 data-uid
+                let uid = tr.dataset.uid
+
+                // 更新 students 陣列
+                students = students.filter(function (student) {
+                    return student.uid !== uid
+                })
+
+                // 更新 localStorage
+                localStorage.setItem('students', JSON.stringify(students))
+            }
+
+            // 更新 students 陣列
+            // dataset => data-
+            // dataset.index => 取得 data-index 的值
+            // let index = tr.dataset.index
+            // 使用 index 會有順序問題
+            // 刪除完畢後，在使用 init 重新綁定 (OK，但有效能問題)
+        }
+    }
+}
+
+const notIf = async function (e) {
+    // 判斷點到的是否為 td
+    if (e.target.tagName != 'TD') {
+        return
+    }
+
+    let tr = e.target.closest('tr')
+    if (!tr) {
+        return
+    }
+
+    let result = await Swal.fire({
+        title: '確定要刪除嗎？',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: '確定',
+        cancelButtonText: '取消',
+    })
+
+    if (!result.isConfirmed) {
+        return
+    }
+
+    // 刪除 tr
+    tr.remove()
+
+    // 抓取 tr 的 data-uid
+    let uid = tr.dataset.uid
+
+    // 更新 students 陣列
+    students = students.filter(function (student) {
+        return student.uid !== uid
+    })
+
+    // 更新 localStorage
+    localStorage.setItem('students', JSON.stringify(students))
+}
+
+// 綁定 tbody 統一接收 click 事件
+// 1. 抓取點擊的 tr
+const bindTbody = function () {
+    let tbody = dom.table.querySelector('tbody')
+    tbody.addEventListener('click', async function (e) {
+        // normalIf(e)
+        notIf(e)
+    })
+}
+
+bindTbody()
+
+/**
+ * 點選特定 tr 時，可刪除該 tr
+ * 1. 抓取點擊的 tr
+ * 2. 確認刪除
+ * 3. 刪除 tr
+ * 4. 更新 localStorage
+ */
