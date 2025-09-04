@@ -10,21 +10,71 @@
         <div class="container">
             <h1 class="title">API</h1>
             <h2 class="title">建立連線</h2>
-            <div class="input-group">
-                <label for="api-url">API URL</label>
-                <input type="text" id="api-url" />
-            </div>
-            <div class="fn">
-                <button class="btn" id="connect-btn">連線</button>
+            <div class="connect-wrap" id="connect-wrap">
+                <div class="input-group">
+                    <label for="api-url">API URL</label>
+                    <input type="text" id="api-url" />
+                </div>
+                <div class="fn">
+                    <!-- 解法一 -->
+                    <!-- <span class="status">未連線</span>
+                    <span class="status connected">已連線</span> -->
+                    <!-- 解法二 -->
+                    <span class="status"></span>
+                    <button class="btn" id="connect-btn">連線</button>
+                    <button class="btn danger" id="disconnect-btn">斷線</button>
+                </div>
             </div>
 
-            <h2 class="title">取得資料</h2>
-            <div class="get-wrap">
-                <div>
-                    <h3 class="title">發送資料</h3>
+            <div id="connect-mode">
+                <div class="tab" id="tab-app">
+                    <a href="#" class="active" data-tab="tab-list">列表</a>
+                    <a href="#" data-tab="tab-add">新增</a>
                 </div>
-                <div>
-                    <h3 class="title">接收資料</h3>
+                <div class="tab-content active" id="tab-list">
+                    <div class="data-list-wrap" id="data-list-wrap">
+                        <table class="table" id="data-list">
+                            <thead>
+                                <tr>
+                                    <th>功能</th>
+                                    <th>UID</th>
+                                    <th>名稱</th>
+                                    <th>年齡</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <div class="editor-wrap" id="editor-wrap">
+                            <input type="hidden" id="editor-uid" />
+                            <div class="input-group">
+                                <label for="editor-name">名稱</label>
+                                <input type="text" id="editor-name" />
+                            </div>
+                            <div class="input-group">
+                                <label for="editor-age">年齡</label>
+                                <input type="text" id="editor-age" />
+                            </div>
+                            <div class="fn">
+                                <button class="btn cancel" id="cancel-btn">取消</button>
+                                <button class="btn" id="editor-btn">更新</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="tab-add">
+                    <div>
+                        <div class="input-group">
+                            <label for="user-name">名稱</label>
+                            <input type="text" id="user-name" />
+                        </div>
+                        <div class="input-group">
+                            <label for="user-age">年齡</label>
+                            <input type="text" id="user-age" />
+                        </div>
+                        <div class="fn">
+                            <button class="btn" id="send-btn">新增</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

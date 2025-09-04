@@ -4,6 +4,7 @@
     text-align: center;
     color: #2d34fa;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .input-group {
@@ -25,7 +26,9 @@
 }
 
 .fn {
-    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 
     .btn {
         background-color: #2d97fa;
@@ -36,6 +39,66 @@
         cursor: pointer;
         &:hover {
             background-color: #1d87e5;
+        }
+
+        &.danger {
+            background-color: #ff0000;
+            &:hover {
+                background-color: #e60000;
+            }
+        }
+    }
+}
+
+.connect-wrap {
+    #disconnect-btn {
+        display: none;
+    }
+    .fn {
+        justify-content: space-between;
+        .status {
+            padding: 2px 10px;
+            background-color: #eaeaea;
+            border-radius: 100px;
+            font-size: 10px;
+            color: #a7a7a7;
+
+            // 解法二：使用 ::after 偽元素
+            &::after {
+                content: '未連線';
+            }
+
+            // 解法一：使用 connected 類別
+            &.connected {
+                display: none;
+            }
+        }
+    }
+
+    &.connected {
+        #disconnect-btn {
+            display: block;
+        }
+        #connect-btn {
+            display: none;
+        }
+        .status {
+            background-color: #2d34fa;
+            color: #fff;
+
+            // 解法一：使用 not 偽類
+            // &:not(.connected) {
+            //     display: none;
+            // }
+
+            // &.connected {
+            //     display: block;
+            // }
+
+            // 解法二：使用 ::after 偽元素
+            &::after {
+                content: '已連線';
+            }
         }
     }
 }
@@ -52,5 +115,116 @@
         border: 1px solid #ccc;
         padding: 20px;
         border-radius: 5px;
+    }
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    th,
+    td {
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+
+    th {
+        background-color: #ffd9d9;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f0f0f0;
+    }
+
+    tbody tr:hover {
+        background-color: #ffb957;
+    }
+
+    .edit {
+        color: #2d34fa;
+        font-size: 12px;
+    }
+
+    .delete {
+        color: #ff0000;
+        font-size: 12px;
+    }
+}
+
+.data-list-wrap {
+    .editor-wrap {
+        display: none;
+        .fn {
+            justify-content: space-between;
+
+            .cancel {
+                background-color: transparent;
+                color: #333;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background-color: #333;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    &.editor-mode {
+        .editor-wrap {
+            display: block;
+        }
+        .table {
+            display: none;
+        }
+    }
+}
+
+#connect-mode {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+.tab {
+    margin: 10px auto;
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #ccc;
+
+    > a {
+        padding: 5px 10px;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #333;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        transition: all 0.3s ease;
+        &:hover {
+            background-color: #4f55ff;
+            color: #fff;
+        }
+
+        &.active {
+            background-color: #4f55ff;
+            color: #fff;
+            &:hover {
+                background-color: #3c41c4;
+            }
+        }
+    }
+}
+
+.tab-content {
+    display: none;
+
+    &.active {
+        display: block;
     }
 }

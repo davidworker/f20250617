@@ -25,6 +25,18 @@ class Api {
         let response = await fetch(this.url, options)
         return await response.json()
     }
+
+    async create(data = {}) {
+        return await this.post({ data })
+    }
+
+    async delete(uid) {
+        return await this.post({ uid, action: 'delete' })
+    }
+
+    async update(uid, data = {}) {
+        return await this.post({ uid, data })
+    }
 }
 
 export { Api }
