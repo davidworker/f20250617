@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Contact App</title>
+        <link rel="stylesheet" href="css/20250904-2-vue-contact-app.css" />
+    </head>
+    <body>
+        <div id="app">
+            <div class="container">
+                <h1 class="title">Contact App</h1>
+                <div class="two">
+                    <div class="col">
+                        <h2 class="title">輸入</h2>
+                        <form>
+                            <div class="input-group">
+                                <label for="name">姓名</label>
+                                <!-- v-model 雙向綁定 -->
+                                <input type="text" placeholder="姓名" v-model="form.name" ref="name" />
+                            </div>
+                            <div class="input-group">
+                                <label for="email">信箱</label>
+                                <input type="email" placeholder="信箱" v-model="form.email" ref="email" />
+                            </div>
+                            <div class="input-group">
+                                <label for="phone">電話<span class="badge">{{ form.phone.length }}</span></label>
+                                <input type="text" placeholder="電話" v-model="form.phone" ref="phone" @input="phoneValid" @change="phoneValid" />
+                            </div>
+                            <div class="input-group">
+                                <label for="subject">主旨</label>
+                                <input type="text" placeholder="主旨" v-model="form.subject" ref="subject" />
+                            </div>
+                            <div class="input-group">
+                                <label for="message">訊息</label>
+                                <textarea placeholder="訊息" v-model="form.message" ref="message"></textarea>
+                            </div>
+                            <div class="fn">
+                                <!-- @click.prevent 防止表單提交 = e.preventDefault() -->
+                                <button type="submit" class="btn" id="submit" @click.prevent="submit">發送</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <h2 class="title">預覽</h2>
+                        <div class="preview">
+                            <div class="preview-item">
+                                <span class="label">姓名</span>
+                                <span class="value">{{ form.name }}</span>
+                            </div>
+                            <div class="preview-item">
+                                <span class="label">信箱</span>
+                                <span class="value">{{ form.email }}</span>
+                            </div>
+                            <div class="preview-item">
+                                <span class="label">電話</span>
+                                <span class="value">{{ form.phone }}</span>
+                            </div>
+                            <div class="preview-item">
+                                <span class="label">主旨</span>
+                                <span class="value">{{ form.subject }}</span>
+                            </div>
+                            <div class="preview-item">
+                                <span class="label">訊息</span>
+                                <!-- 單向綁定 {{ form.message }} -> textContent -->
+                                <span class="value">{{ form.message }}</span>
+                            </div>
+                            <div class="preview-item">
+                                <span class="label">訊息</span>
+                                <!-- 單向綁定 v-html="form.message" -> innerHTML -->
+                                <span class="value" v-html="messageFormat(form.message)"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="js/lib/vue.global.prod.js"></script>
+    <script type="module" src="js/20250904-2-vue-contact-app.js"></script>
+</html>
