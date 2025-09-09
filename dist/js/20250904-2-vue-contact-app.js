@@ -150,7 +150,6 @@ const options = {
                 items = {}
             }
             this.items = items
-            console.log(this.items)
         },
         edit(uid) {
             this.editUid = uid
