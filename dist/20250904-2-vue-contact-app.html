@@ -7,71 +7,98 @@
         <link rel="stylesheet" href="css/20250904-2-vue-contact-app.css" />
     </head>
     <body>
-        <div id="app">
+        <div id="app" v-cloak>
             <div class="container">
                 <h1 class="title">Contact App</h1>
-                <div class="two">
-                    <div class="col">
-                        <h2 class="title">輸入</h2>
-                        <form>
-                            <div class="input-group">
-                                <label for="name">姓名</label>
-                                <!-- v-model 雙向綁定 -->
-                                <input type="text" placeholder="姓名" v-model="form.name" ref="name" />
-                            </div>
-                            <div class="input-group">
-                                <label for="email">信箱</label>
-                                <input type="email" placeholder="信箱" v-model="form.email" ref="email" />
-                            </div>
-                            <div class="input-group">
-                                <label for="phone">電話<span class="badge">{{ form.phone.length }}</span></label>
-                                <input type="text" placeholder="電話" v-model="form.phone" ref="phone" @input="phoneValid" @change="phoneValid" />
-                            </div>
-                            <div class="input-group">
-                                <label for="subject">主旨</label>
-                                <input type="text" placeholder="主旨" v-model="form.subject" ref="subject" />
-                            </div>
-                            <div class="input-group">
-                                <label for="message">訊息</label>
-                                <textarea placeholder="訊息" v-model="form.message" ref="message"></textarea>
-                            </div>
-                            <div class="fn">
-                                <!-- @click.prevent 防止表單提交 = e.preventDefault() -->
-                                <button type="submit" class="btn" id="submit" @click.prevent="submit">發送</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col">
-                        <h2 class="title">預覽</h2>
-                        <div class="preview">
-                            <div class="preview-item">
-                                <span class="label">姓名</span>
-                                <span class="value">{{ form.name }}</span>
-                            </div>
-                            <div class="preview-item">
-                                <span class="label">信箱</span>
-                                <span class="value">{{ form.email }}</span>
-                            </div>
-                            <div class="preview-item">
-                                <span class="label">電話</span>
-                                <span class="value">{{ form.phone }}</span>
-                            </div>
-                            <div class="preview-item">
-                                <span class="label">主旨</span>
-                                <span class="value">{{ form.subject }}</span>
-                            </div>
-                            <div class="preview-item">
-                                <span class="label">訊息</span>
-                                <!-- 單向綁定 {{ form.message }} -> textContent -->
-                                <span class="value">{{ form.message }}</span>
-                            </div>
-                            <div class="preview-item">
-                                <span class="label">訊息</span>
-                                <!-- 單向綁定 v-html="form.message" -> innerHTML -->
-                                <span class="value" v-html="messageFormat(form.message)"></span>
+                <div class="tab-header">
+                    <a href="#" @click.prevent="toTab('input')" :class="{ active: currentTab === 'input' }">輸入</a>
+                    <a href="#" @click.prevent="toTab('list')" :class="{ active: currentTab === 'list' }">列表</a>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-item" v-show="currentTab === 'input'">
+                        <div class="two">
+                            <div class="col">
+                                <form>
+                                    <div class="input-group">
+                                        <label for="name">姓名</label>
+                                        <!-- v-model 雙向綁定 -->
+                                        <input type="text" placeholder="姓名" v-model="form.name" ref="name" />
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="email">信箱</label>
+                                        <input type="email" placeholder="信箱" v-model="form.email" ref="email" />
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="phone">電話<span class="badge">{{ form.phone.length }}</span></label>
+                                        <input type="text" placeholder="電話" v-model="form.phone" ref="phone" @input="phoneValid" @change="phoneValid" />
+                                    </div>
+                                    <div class="list-item" v-for="item in list" :key="item.uid">
+                                        <span class="name">{{ item.name }}</span>
+                                        <span class="email">{{ item.email }}</span>
+                                        <span class="phone">{{ item.phone }}</span>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="subject">主旨</label>
+                                        <input type="text" placeholder="主旨" v-model="form.subject" ref="subject" />
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="message">訊息</label>
+                                        <textarea placeholder="訊息" v-model="form.message" ref="message"></textarea>
+                                    </div>
+                                    <div class="fn">
+                                        <!-- @click.prevent 防止表單提交 = e.preventDefault() -->
+                                        <button type="submit" class="btn" id="submit" @click.prevent="submit">發送</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
+                    <div class="tab-item" v-show="currentTab === 'list'">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 120px">功能</th>
+                                    <th>姓名</th>
+                                    <th>信箱</th>
+                                    <th>電話</th>
+                                    <th>主旨</th>
+                                    <!-- <th>訊息</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template v-for="(item, uid) in items">
+                                    <tr>
+                                        <td>
+                                            <div class="table-fn">
+                                                <a href="#" class="edit" v-show="editUid !== uid" @click.prevent="edit(uid)">編輯</a>
+                                                <a href="#" class="save" v-show="editUid === uid" @click.prevent="save(uid)">儲存</a>
+                                                <a href="#" class="delete" @click.prevent="remove(uid)">刪除</a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input class="edit-input" :readonly="editUid !== uid" type="text" v-model="item.name" />
+                                        </td>
+                                        <td>
+                                            <input class="edit-input" :readonly="editUid !== uid" type="text" v-model="item.email" />
+                                        </td>
+                                        <td>
+                                            <input class="edit-input" :readonly="editUid !== uid" type="text" v-model="item.phone" />
+                                        </td>
+                                        <td>
+                                            <input class="edit-input" :readonly="editUid !== uid" type="text" v-model="item.subject" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5">
+                                            <textarea class="edit-input" :readonly="editUid !== uid" type="text" v-model="item.message"></textarea>
+                                        </td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- v-show 不會移除 DOM 元素，使用 display: none 來控制，不會重新渲染，適合用於需要頻繁切換的場景 -->
+                    <!-- v-if 會移除 DOM 元素，會重新渲染 DOM 元素，適合用於需要一次性渲染的場景 -->
                 </div>
             </div>
         </div>

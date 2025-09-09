@@ -1,8 +1,28 @@
 import { Alert } from './components/Alert.js'
 import { Sleep } from './components/Sleep.js'
 import { Ajax } from './components/Ajax.js'
+import { Storage } from './components/Storage.js'
 
 const API_URL = 'https://book.niceinfos.com/api/form/io.php'
+
+// 儲存資料到 localStorage
+const storage = new Storage('contact')
+
+// 測試開始
+// storage.write('1234')
+// storage.write({
+//     name: 'John',
+//     email: 'john@example.com',
+//     phone: '1234567890',
+//     subject: 'Hello',
+//     message: 'Hello, world!',
+// })
+// storage.write([1, 2, 3, 4])
+// read 會引發錯誤
+// storage.write('')
+// let data = storage.read()
+// console.log(data)
+// 測試結束
 
 const options = {
     data() {
@@ -21,9 +41,15 @@ const options = {
                 subject: '主旨',
                 message: '訊息',
             },
+            currentTab: 'input',
+            items: {},
+            editUid: '',
         }
     },
     methods: {
+        toTab(tab) {
+            this.currentTab = tab
+        },
         async submit() {
             // 檢查是否填寫完整
             for (let key in this.requires) {
@@ -64,10 +90,28 @@ const options = {
                 for (let key in this.form) {
                     this.form[key] = ''
                 }
-                // 將 uid 存到 localStorage
+                let uid = response.uid
+                let cloudData = await this.get(uid)
+                this.items[uid] = cloudData
+                storage.write(this.items)
+
+                // // 讀取現有的列表資料
+                // let storageData = storage.read()
+                // // 如果現有的列表資料不存在，則初始化為空物件
+                // if (!storageData || typeof storageData !== 'object') {
+                //     storageData = {}
+                // }
+                // // 將雲端資料增加到現有的列表資料中
+                // storageData[uid] = cloudData
+                // // 儲存到 localStorage
+                // storage.write(storageData)
             } else {
                 await Alert.error('發送失敗', response.message)
             }
+        },
+        async get(uid) {
+            let response = await Ajax.get(API_URL, { uid })
+            return response.code == 200 ? response.data : {}
         },
         phoneValid(e) {
             let value = e.target.value
@@ -100,9 +144,51 @@ const options = {
             }
             return message
         },
+        initItems() {
+            let items = storage.read()
+            if (!items || typeof items !== 'object') {
+                items = {}
+            }
+            this.items = items
+            console.log(this.items)
+        },
+        edit(uid) {
+            this.editUid = uid
+        },
+        async save(uid) {
+            let response = await Ajax.post(API_URL, { uid, data: this.items[uid] })
+            if (response.code === 200) {
+                await Alert.success('更新成功', '資料已更新到雲端')
+                this.editUid = ''
+                storage.write(this.items)
+            } else {
+                // 本地儲存等待網路更新
+                await Alert.error('更新失敗', response.message)
+            }
+        },
+        async remove(uid) {
+            if (!uid || !this.items[uid]) {
+                return
+            }
+            let item = this.items[uid]
+            let result = await Alert.confirm('確定刪除嗎？', `刪除 ${item.name} 後將無法恢復`)
+            if (!result.isConfirmed) {
+                return
+            }
+
+            let response = await Ajax.post(API_URL, { uid, action: 'delete' })
+            if (response.code === 200) {
+                await Alert.success('刪除成功', '資料已刪除')
+                delete this.items[uid]
+                storage.write(this.items)
+            } else {
+                await Alert.error('刪除失敗', response.message)
+            }
+        },
     },
     mounted() {
         console.log('mounted')
+        this.initItems()
     },
 }
 

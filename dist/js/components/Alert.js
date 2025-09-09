@@ -36,6 +36,20 @@ class Alert {
         })
         return result
     }
+
+    static async confirm(title, html, confirmBtnText = '確定', cancelBtnText = '取消') {
+        await this.init()
+        let result = await Swal.fire({
+            title,
+            html,
+            icon: 'question',
+            confirmButtonText: confirmBtnText,
+            cancelButtonText: cancelBtnText,
+            showCancelButton: true,
+            confirmButtonColor: '#ff4747',
+        })
+        return result
+    }
 }
 
 export { Alert }
